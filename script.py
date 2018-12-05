@@ -33,5 +33,6 @@ def start(message):
 @bot2.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
     bot2.reply_to(message, "Привет")
-bot.polling()
 bot2.polling()
+bot.polling()
+
