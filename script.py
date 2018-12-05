@@ -24,13 +24,13 @@ def getMessage():
     bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
     return "!", 200
 
-bot.polling()
 
-#@server.route("/")
-#def webhook():
-#    bot.remove_webhook()
-#    bot.set_webhook(url='https://your_heroku_project.com/' + TOKEN)
-#    return "!", 200
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://damp-lake-81790.herokuapp.com/' + TOKEN)
+    return "!", 200
 
 
 if __name__ == "__main__":
