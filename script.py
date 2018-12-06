@@ -35,4 +35,3 @@ def echo_message(message):
     bot2.reply_to(message, "Привет")
 bot2.polling()
 bot.polling()
-
