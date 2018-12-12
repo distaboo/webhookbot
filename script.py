@@ -5,13 +5,14 @@ import requests
 import telebot
 
 TOKEN = '664435594:AAHUcl61psQuC5LvPqq7L-JZvMCmOX62SGU'
+TOKEN2 = '405823545:AAHT8vByxjot138gjLW4LYT1qIWvALIxFMM'
 secret = 'hjrt5344rekjhd4o3weks4'
-url = 'https://distaboo.pythonanywhere.com/'+secret
+url = 'https://distaboo.pythonanywhere.com/'
 bot = telebot.TeleBot(TOKEN, threaded = False)
 bot.remove_webhook()
 bot.set_webhook(url = url)
 
-TOKEN2 = '405823545:AAHT8vByxjot138gjLW4LYT1qIWvALIxFMM'
+
 secret2 = 'dshfjglrmken45tlkrje45'
 url2 = 'https://distaboo.pythonanywhere.com/'+secret2
 bot2 = telebot.TeleBot(TOKEN2, threaded = False)

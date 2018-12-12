@@ -1,0 +1,39 @@
+import os
+import requests
+import telebot
+from random import choice
+from string import ascii_letters
+from flask import Flask, request
+
+
+class bot(object):
+    def __init__(self,token,admin_id,app,url):
+        self.token = TOKEN
+        self.admin_id = admin_id
+        self.app = app
+        self.url = url
+        self.bot = telebot.TeleBot(TOKEN, threaded = False)
+        bot.remove_webhook()
+        bot.set_webhook(url = url)
+
+    def strat(self):
+
+        secret = ''.join(choice(ascii_letters) for i in range(30))
+        bot = telebot.TeleBot(TOKEN, threaded = False)
+        bot.remove_webhook()
+        bot.set_webhook(url = url + secret)
+
+        @app.route('/'+secret, methods = ['POST'])
+        def webhook():
+            update = telebot.types.Update.de_json(request.stream.read().decode('utf-8'))
+            bot.process_new_updates([update])
+            return 'ok',200
+
+        @bot.message_handler(commands=['start'])
+        def start(message):
+            bot.reply_to(message, 'Hellouu, ' + message.from_user.first_name)
+
+
+        @bot.message_handler(func=lambda message: True, content_types=['text'])
+        def echo_message(message):
+            bot.reply_to(message, "Приветики")
